@@ -3,6 +3,7 @@ package runSchool;
 import school.School;
 import student.Student;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class RunSchool {
@@ -41,13 +42,25 @@ public class RunSchool {
                     System.out.println(school.toString());
                     break;
 
-                case "4":
-//                    System.out.println(school.toString());
-//                    System.out.println(schoolManager.searchStudentById());
-//                    schoolManager.searchStudentById();
+
+
+                case "5":
+                    System.out.println(school.toString());
+                    schoolManager.searchStudentBySecondName();
+                    break;
 
                 case "6":
                     System.out.println(school.toString());
+                    break;
+
+                case "7":
+                    System.out.println(school.toString());
+                    schoolManager.viewStudentByIndex();
+                    break;
+
+                case "8":
+                    System.out.println(school.toString());
+                    schoolManager.viewStudentById();
                     break;
 
 
@@ -102,9 +115,10 @@ public class RunSchool {
         System.out.println("1 - add a student to school");
         System.out.println("2 - remove a student from school by index");
         System.out.println("3 - remove a student from school by id");
-        System.out.println("4 - search a student at school by id");
         System.out.println("5 - search students at school by second name");
         System.out.println("6 - view student's list");
+        System.out.println("7 - view a student by index");
+        System.out.println("8 - view a student by id");
 
 
     }

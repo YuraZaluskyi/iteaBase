@@ -4,6 +4,7 @@ package runSchool;
 import school.School;
 import student.Student;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SchoolManager {
@@ -48,6 +49,24 @@ public class SchoolManager {
         System.out.print("Please, enter student's id: ");
         int id = sc.nextInt();
         school.searchById(id);
+    }
+
+    public void searchStudentBySecondName(){
+        System.out.print("Please, enter student's second name: ");
+        String secondName = sc.next();
+        System.out.println(school.searchBySecondName(secondName));
+    }
+
+    public void viewStudentByIndex(){
+        System.out.print("Please, enter student's index: ");
+        int index = sc.nextInt();
+        System.out.println(school.viewStudentByIndex(index));
+    }
+
+    public void viewStudentById(){
+        System.out.print("Please, enter student's id: ");
+        int id = sc.nextInt();
+        System.out.println(school.viewStudentById(id));
     }
 
 

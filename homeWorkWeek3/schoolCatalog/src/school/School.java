@@ -51,6 +51,15 @@ public class School {
         student.setId(size);
     }
 
+    //   2W. додає студента до школи без id
+    public void addWitoutId(Student student) {
+        if (size >= catalog.length) {
+            extendArray();
+        }
+        catalog[size++] = student;
+    }
+
+
     //    3. збільшує каталог на 1, коли нема вже місця для наступного студента
     public void extendArray() {
         Student[] newCatalog = new Student[size + 1];
@@ -84,30 +93,49 @@ public class School {
     }
 
     //  7. знайти студента по id
-    public Student searchById(int id) {
+    public School searchById(int id) {
+        School newSchool = new School();
 
         for (int i = 0; i < catalog.length; i++) {
             if (catalog[i].getId() == id) {
-                return catalog[i];
-            }
-        }
-        return null;
-    }
-
-    //  8. знайти студентів по secondName
-    public School searchBySecondName(String secondName){
-        School newSchool = new School();
-
-        for (int i = 0; i < catalog.length ; i++) {
-
-            if (catalog[i].getSecondName() == secondName){
                 newSchool.add(catalog[i]);
             }
         }
         return newSchool;
     }
 
-//
+    //  8. знайти студентів по secondName
+    public School searchBySecondName(String secondName) {
+        Student[] newCatalog = new Student[0];
+        School newSchool = new School(newCatalog);
+
+        for (int i = 0; i < catalog.length; i++) {
+            if (catalog[i].getSecondName().equals(secondName)) {
+                newSchool.addWitoutId(catalog[i]);
+            }
+        }
+        return newSchool;
+    }
+
+    //  9. вивести дані про конкретного студента по index
+    public Student viewStudentByIndex(int index) {
+        Student student = catalog[index];
+        return student;
+    }
+
+    //  10. вивести дані про конкретного студента по id
+    public Student viewStudentById(int id) {
+        Student student = null;
+        for (int i = 0; i < catalog.length; i++) {
+            if (catalog[i].getId() == id) {
+                student = catalog[i];
+                break;
+            }
+        }
+        return student;
+    }
+
+    // 11.
 
 
 }
